@@ -12,15 +12,15 @@ container.addEventListener("click", function (e) {
   }
 
   if (nav.classList.contains("display")) {
-    lineOne.style.cssText = "transform: rotate(33deg);transform-origin: left";
+    lineOne.style.cssText =
+      "transform: rotate(-45deg) translateX(-0.55rem) translateY(-0.3rem);transform-origin: right";
     lineTwo.style.cssText =
-      "opacity: 0; visibility: hidden; transform: translateX(-100%)";
+      "transform: translateX(100%); opacity: 0;visibility: hidden";
     lineThree.style.cssText =
-      "transform: rotate(-33deg);transform-origin: left";
+      "transform: rotate(45deg)  translateX(-0.6rem) translateY(0.35rem);transform-origin: bottom right";
   } else {
     lineOne.style.cssText = "transform: rotate(0)";
-    lineTwo.style.cssText =
-      "opacity: 1; visibility: visible; transform: translateX(0)";
+    lineTwo.style.cssText = "opacity: 1; visibility: visible";
     lineThree.style.cssText = "transform: rotate(0)";
   }
 });
