@@ -49,7 +49,7 @@ Users should be able to:
 
 ### What I learned
 
-For this project, my goal is to stay away from 'fixed' sizes. Although the project is for navigation. My personal goal is responsiveness. Overall I am pretty happy with the responsiveness. I think the navigation is a little rough. What I learned:
+This was a fun and challenging project. I learned a lot about responsiveness. I tried my best to stay away from fix-sizes.
 
 - Clamp()
 - min-content / max-content / fit-content

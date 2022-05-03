@@ -45,6 +45,7 @@ html {
 }
 .container .nav-item {
   margin: 0 2rem;
+  color: hsl(0deg, 0%, 8%);
   cursor: pointer;
 }
 .container .nav-link {
@@ -52,8 +53,6 @@ html {
   letter-spacing: 0.05rem;
   font-size: 1.4rem;
   transition: color 0.2s;
-}
-.container .nav-link:hover {
   color: hsl(0deg, 0%, 8%);
 }
 .container .nav-left {
@@ -147,7 +146,7 @@ html {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   padding: 5rem 10rem;
   transition: all 0.2s;
 }
@@ -210,17 +209,29 @@ html {
   aspect-ratio: 1/1;
   object-fit: contain;
 }
-.container .main-right {
-  justify-content: center;
-  margin-top: -5rem;
-}
 .container .main-right img {
   max-width: 100%;
+  aspect-ratio: 1/1;
   object-fit: contain;
   transition: all 0.2s;
 }
 .container .main-right-mobile {
   display: none;
+}
+@media (min-width: 1440px) {
+  .container .main {
+    max-width: 90%;
+    margin: auto;
+  }
+  .container .main-right img {
+    max-width: 80%;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    transition: all 0.2s;
+  }
+  .container .main-right-mobile {
+    display: none;
+  }
 }
 @media (max-width: 1150px) {
   .container .nav-left {

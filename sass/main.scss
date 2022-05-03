@@ -30,14 +30,15 @@
 
     &-item {
       margin: 0 2rem;
+      color: $color-almost-black;
       cursor: pointer;
     }
 
     &-link {
       @include linkStyles;
       transition: color 0.2s;
+      color: $color-almost-black;
       &:hover {
-        color: $color-almost-black;
       }
     }
 
@@ -131,7 +132,7 @@
   .main {
     margin-top: 2rem;
     @include flexCenter;
-    justify-content: space-between;
+    justify-content: center;
     padding: 5rem 10rem;
     transition: all 0.2s;
 
@@ -194,17 +195,34 @@
     }
 
     &-right {
-      justify-content: center;
-      margin-top: -5rem;
       img {
         max-width: 100%;
-        // aspect-ratio: 1 / 1.5;
+        aspect-ratio: 1 / 1;
         object-fit: contain;
         transition: all 0.2s;
       }
 
       &-mobile {
         display: none;
+      }
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .main {
+      max-width: 90%;
+      margin: auto;
+      &-right {
+        img {
+          max-width: 80%;
+          aspect-ratio: 1 / 1;
+          object-fit: contain;
+          transition: all 0.2s;
+        }
+
+        &-mobile {
+          display: none;
+        }
       }
     }
   }
