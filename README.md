@@ -34,7 +34,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Add solution URL here](https://github.com/Nghuynh07/dropdown_navigation)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Add live site URL here](https://bejewelled-mooncake-66f439.netlify.app/)
 
 ## My process
 
