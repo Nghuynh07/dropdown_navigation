@@ -30,15 +30,15 @@
 
     &-item {
       margin: 0 2rem;
-      color: $color-almost-black;
       cursor: pointer;
     }
 
     &-link {
       @include linkStyles;
       transition: color 0.2s;
-      color: $color-almost-black;
+      color: $color-medium-gray;
       &:hover {
+        color: $color-almost-black;
       }
     }
 
@@ -46,25 +46,25 @@
       margin-left: 3rem;
       display: flex;
       align-items: center;
+      .feature {
+        position: relative;
+      }
+      .feature-dropdown {
+        transform: translateX(-50%);
+        transition: all 0.2s;
+      }
+      .company {
+        position: relative;
+      }
+
+      .company-dropdown {
+        transform: translateX(10%);
+        transition: all 0.2s;
+      }
     }
 
     &-list {
       display: flex;
-    }
-    .feature {
-      position: relative;
-    }
-    .feature-dropdown {
-      transform: translateX(-50%);
-      transition: all 0.2s;
-    }
-    .company {
-      position: relative;
-    }
-
-    .company-dropdown {
-      transform: translateX(10%);
-      transition: all 0.2s;
     }
 
     &-dropdown {
@@ -111,21 +111,25 @@
   }
 
   .hamburger {
+    // background-color: yellow;
     display: none;
     width: 3.5rem;
     height: 2rem;
-    position: absolute;
+    position: fixed;
     top: 2.5rem;
     right: 2.5rem;
     z-index: 1000;
     flex-direction: column;
     justify-content: space-between;
+    // overflow: hidden;
     cursor: pointer;
     .line {
       width: 100%;
-      height: 0.2rem;
+      height: 0.3rem;
       background-color: $color-almost-black;
       pointer-events: none;
+      border-radius: 10rem;
+      transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
     }
   }
 
@@ -278,43 +282,9 @@
   }
 
   @media (max-width: 850px) {
-    .display {
-      right: 0;
-    }
     .hamburger {
       display: flex;
     }
-
-    .feature {
-      min-height: 24vh;
-      position: relative;
-    }
-    .company {
-      min-height: 19vh;
-      position: relative;
-      margin-bottom: 2rem;
-    }
-
-    .feature-dropdown {
-      transform: translateX(0);
-      box-shadow: 0 0 0 transparent;
-      padding: 0;
-      top: 0;
-      left: 80%;
-      transition: all 0.2s;
-      margin: 3rem 0;
-    }
-
-    .company-dropdown {
-      padding: 0;
-      transform: translateX(0);
-      box-shadow: 0 0 0 transparent;
-      top: 0;
-      left: 10%;
-      margin: 3rem 0;
-      transition: all 0.2s;
-    }
-
     .nav {
       position: fixed;
       right: 0;
@@ -322,34 +292,11 @@
       min-width: 40vw;
       min-height: 100vh;
       flex-direction: column;
-      justify-content: space-evenly;
+      justify-content: space-around;
       background-color: $color-almost-white;
-      padding: 0rem 0 0 3rem;
       z-index: 100;
       transform: translateX(300%);
       transition: transform 0.2s;
-
-      &-dropdown {
-        top: 0;
-        // padding: 0 1rem 0 0;
-        // background-color: yellow;
-      }
-
-      &-dropdown-item {
-        margin: 2.5rem 0;
-      }
-
-      &-list {
-        flex-direction: column;
-      }
-
-      &-item {
-        font-size: 1.6rem;
-        margin: 1.5rem 0;
-        & > * {
-          font-size: 1.6rem;
-        }
-      }
 
       &-logo-desktop {
         display: none;
@@ -362,15 +309,51 @@
         margin-bottom: 5rem;
       }
 
+      &-left {
+        margin: 0;
+        padding: 0;
+
+        .feature {
+          box-shadow: 0 0 0 transparent;
+          min-height: 22vh;
+        }
+
+        .company {
+          box-shadow: 0 0 0 transparent;
+          min-height: 17vh;
+        }
+
+        .feature-dropdown {
+          transform: translateX(0);
+        }
+
+        .company-dropdown {
+          transform: translateX(0);
+        }
+      }
+
+      &-list {
+        flex-direction: column;
+      }
+
+      &-item {
+        font-size: 1.6rem;
+        margin: 1.5rem 3rem;
+        & > * {
+          font-size: 1.6rem;
+        }
+      }
+
       &-right {
+        padding: 0;
+        margin: 0;
         flex-direction: column;
         margin-top: 2rem;
-
+        margin-inline: 3rem;
         & > * {
           margin: 1rem;
         }
       }
-
       &-register {
         min-width: 100%;
         text-align: center;

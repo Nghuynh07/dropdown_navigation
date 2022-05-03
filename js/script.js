@@ -3,8 +3,25 @@ const container = document.querySelector(".container");
 const nav = document.querySelector(".nav");
 
 container.addEventListener("click", function (e) {
+  const lineOne = document.querySelector(".line-1");
+  const lineTwo = document.querySelector(".line-2");
+  const lineThree = document.querySelector(".line-3");
+
   if (e.target.className === "hamburger") {
     nav.classList.toggle("display");
+  }
+
+  if (nav.classList.contains("display")) {
+    lineOne.style.cssText = "transform: rotate(33deg);transform-origin: left";
+    lineTwo.style.cssText =
+      "opacity: 0; visibility: hidden; transform: translateX(-100%)";
+    lineThree.style.cssText =
+      "transform: rotate(-33deg);transform-origin: left";
+  } else {
+    lineOne.style.cssText = "transform: rotate(0)";
+    lineTwo.style.cssText =
+      "opacity: 1; visibility: visible; transform: translateX(0)";
+    lineThree.style.cssText = "transform: rotate(0)";
   }
 });
 
