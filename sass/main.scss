@@ -9,13 +9,16 @@
     transform: translateX(0) !important;
   }
 
+  .display-nav {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
   .nav {
     min-height: 10vh;
-    height: 10vh;
     display: flex;
     justify-content: space-between;
     transition: all 0.2s;
-
     &-logo-mobile {
       display: none;
     }
@@ -49,34 +52,38 @@
     }
     .feature {
       position: relative;
-      &-dropdown {
-        transform: translateX(-50%);
-        top: 3.5rem;
-      }
     }
-
+    .feature-dropdown {
+      transform: translateX(-50%);
+      transition: all 0.2s;
+    }
     .company {
       position: relative;
-      &-dropdown {
-        padding: 1.5rem 3rem;
-        transform: translateX(10%);
-        top: 3.5rem;
-        width: max-content;
-      }
     }
+
+    .company-dropdown {
+      transform: translateX(10%);
+      transition: all 0.2s;
+    }
+
     &-dropdown {
-      display: none;
-      background-color: $color-almost-white;
-      box-shadow: 0 0 2rem rgba(0 0 0 / 0.08);
-      padding: 1rem 3rem;
-      border-radius: 10px;
       position: absolute;
+      top: 3.5rem;
+      opacity: 0;
+      visibility: hidden;
+      background-color: $color-almost-white;
+      box-shadow: 0 0 4rem rgba(0 0 0 / 0.09);
+      padding: 1rem 2.5rem;
+      border-radius: 10px;
       transition: all 0.3s;
+      animation-delay: 0.5s;
+      min-width: max-content;
+      font-size: clamp(1.4rem, 1.5vw, 1.5rem);
       & > * {
         display: flex;
         margin: 1.5rem 0;
         img {
-          margin-right: 1rem;
+          margin-right: 1.5rem;
         }
       }
 
@@ -122,13 +129,14 @@
   }
 
   .main {
+    margin-top: 2rem;
     @include flexCenter;
     justify-content: space-between;
     padding: 5rem 10rem;
     transition: all 0.2s;
 
     &-heading {
-      font-size: clamp(3.5rem, 4.5vw, 8rem);
+      font-size: clamp(3rem, 5vw, 8rem);
       display: flex;
       flex-direction: column;
     }
@@ -141,7 +149,7 @@
     }
 
     &-left {
-      margin-top: 8rem;
+      margin-top: clamp(2.5rem, 7vh, 8rem);
       @include flexCenter(column);
       align-items: flex-start;
       padding: 0rem 5rem;
@@ -186,9 +194,11 @@
     }
 
     &-right {
+      justify-content: center;
+      margin-top: -5rem;
       img {
-        width: 100%;
-        aspect-ratio: 1 /1;
+        max-width: 100%;
+        // aspect-ratio: 1 / 1.5;
         object-fit: contain;
         transition: all 0.2s;
       }
@@ -219,6 +229,7 @@
       }
 
       &-heading {
+        margin-top: clamp(4rem, 7vh, 5rem);
         flex-direction: row;
         span {
           margin-left: 1rem;
@@ -226,12 +237,12 @@
       }
 
       &-text {
-        max-width: 60%;
+        max-width: fit-content;
         text-align: center;
       }
 
       &-right {
-        margin-top: -5rem;
+        margin-top: 7rem;
         &-desktop {
           display: none;
           transition: all 0.2s;
@@ -248,7 +259,7 @@
     }
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 850px) {
     .display {
       right: 0;
     }
@@ -256,19 +267,59 @@
       display: flex;
     }
 
+    .feature {
+      min-height: 24vh;
+      position: relative;
+    }
+    .company {
+      min-height: 19vh;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .feature-dropdown {
+      transform: translateX(0);
+      box-shadow: 0 0 0 transparent;
+      padding: 0;
+      top: 0;
+      left: 80%;
+      transition: all 0.2s;
+      margin: 3rem 0;
+    }
+
+    .company-dropdown {
+      padding: 0;
+      transform: translateX(0);
+      box-shadow: 0 0 0 transparent;
+      top: 0;
+      left: 10%;
+      margin: 3rem 0;
+      transition: all 0.2s;
+    }
+
     .nav {
-      position: absolute;
+      position: fixed;
       right: 0;
       top: 0;
       min-width: 40vw;
       min-height: 100vh;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: space-evenly;
       background-color: $color-almost-white;
-      padding: 7rem 0 0 3rem;
+      padding: 0rem 0 0 3rem;
       z-index: 100;
       transform: translateX(300%);
       transition: transform 0.2s;
+
+      &-dropdown {
+        top: 0;
+        // padding: 0 1rem 0 0;
+        // background-color: yellow;
+      }
+
+      &-dropdown-item {
+        margin: 2.5rem 0;
+      }
 
       &-list {
         flex-direction: column;
@@ -276,7 +327,7 @@
 
       &-item {
         font-size: 1.6rem;
-        margin: 1rem 0;
+        margin: 1.5rem 0;
         & > * {
           font-size: 1.6rem;
         }
@@ -312,32 +363,14 @@
       }
     }
 
-    .main {
-      &-right {
-        &-mobile {
-          margin-top: 5rem;
-        }
-      }
-      &-text {
-        max-width: fit-content;
-        text-align: center;
-      }
-    }
-  }
+    @media (max-width: 500px) {
+      .nav {
+        min-width: 65vw;
+        transition: all 0.2s;
+        box-shadow: 0 0 0 20rem rgba(0 0 0 / 0.6);
 
-  @media (max-width: 500px) {
-    .nav {
-      min-width: 65vw;
-      transition: all 0.2s;
-      box-shadow: 0 0 0 20rem rgba(0 0 0 / 0.6);
-      &-left {
-        margin-left: 0;
-      }
-    }
-    .main {
-      &-right {
-        &-mobile {
-          margin-top: 8rem;
+        &-left {
+          margin-left: 0;
         }
       }
     }
